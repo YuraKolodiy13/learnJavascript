@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+Счётчик:
+<button data-counter>1</button>
+Ещё счётчик:
+<button data-counter>2</button>
+
+<script>
+    document.body.addEventListener('click', function (e) {
+        let target = e.target;
+        if(target.hasAttributes('data-counter')){
+            target.innerHTML++;
+        }
+    });
+//    document.onclick = function(event) {
+////        if (!event.target.hasAttribute('data-counter')) return;
+//
+//        let counter = event.target;
+//
+//        counter.innerHTML++;
+//    };
+</script>
+
+</body>
+</html>

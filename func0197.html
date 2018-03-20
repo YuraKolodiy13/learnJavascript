@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function reverseIt(data) {
+        var argType = typeof data;
+
+        if(argType === 'string' || argType === 'number'){
+            if(argType === 'string'){
+                return data.split('').reverse().join('');
+            }else {
+                return Number(data.toString().split('').reverse().join(''));
+            }
+        }else {
+            return data;
+        }
+    }
+
+   alert(reverseIt('Hello'));
+    alert(reverseIt(314159));
+</script>
+
+</body>
+</html>

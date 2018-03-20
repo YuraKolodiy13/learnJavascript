@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table id="bench-table"></table>
+
+<script>
+    var appendFirst = new function() {
+        var benchTable = document.getElementById('bench-table');
+
+        this.setup = function() {
+            while (benchTable.firstChild) {
+                benchTable.removeChild(benchTable.firstChild);
+            }
+        };
+
+        this.work = function() {
+            var tbody = document.createElement('TBODY');
+
+            for (var i = 0; i < 20; i++) {
+                var tr = document.createElement('TR');
+                tbody.appendChild(tr);
+                for (var j = 0; j < 20; j++) {
+                    var td = document.createElement('td');
+                    tr.appendChild(td);
+                    td.appendChild(document.createTextNode('' + i.toString(20) + j.toString(20)));
+                }
+            }
+
+            benchTable.appendChild(tbody);
+        }
+
+    };
+    appendFirst.work();
+</script>
+
+</body>
+</html>

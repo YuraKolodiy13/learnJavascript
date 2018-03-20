@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function Singleton() {
+        this.color = 'red';
+        this.drink = true;
+            if(Singleton._instance){
+                return Singleton._instance;
+            }
+        Singleton._instance = this
+    }
+    var obj = new Singleton();
+    console.dir(obj);
+    var objj = new Singleton();
+    console.dir(objj);
+</script>
+
+</body>
+</html>

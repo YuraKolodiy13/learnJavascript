@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function longest(s1, s2) {
+        var arr = (s1 + s2).split('').sort();
+        var finalArr = [];
+
+        for(var i = 0; i < arr.length; i++){
+            if(finalArr.indexOf(arr[i]) == -1){
+                finalArr.push(arr[i]);
+            }
+        }
+        return finalArr.join('');
+    }
+    alert(longest("aretheyhere", "yestheyarehere"));
+</script>
+
+</body>
+</html>

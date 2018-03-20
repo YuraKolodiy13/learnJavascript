@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body{
+            background-color: #1A53F7;
+        }
+        #mouse {
+            display: inline-block;
+            cursor: pointer;
+            margin: 0;
+            width: 100px;
+            height: 150px;
+        }
+
+        #mouse:focus {
+            outline: 1px dashed black;
+        }
+    </style>
+</head>
+
+<body>
+
+<p>Кликните на мышонка и передвигайте его, нажимая клавиши со стрелками.</p>
+
+<img id="mouse" tabindex="1" src="http://www.freepngimg.com/download/man/4-2-man-png-picture.png">
+
+
+<script>
+    const mouse = document.querySelector('#mouse');
+
+    mouse.addEventListener('click', function () {
+        this.style.left = this.getBoundingClientRect().left + 'px';
+        this.style.top = this.getBoundingClientRect().top + 'px';
+        this.style.position = 'fixed';
+    });
+    mouse.addEventListener('keydown', function (e) {
+        if(e.keyCode === 39){
+            mouse.style.left = parseInt(this.style.left) + this.offsetWidth + 'px';
+        }
+        if(e.keyCode === 37){
+            mouse.style.left = parseInt(this.style.left) - this.offsetWidth + 'px';
+        }
+        if(e.keyCode === 38){
+            mouse.style.top = parseInt(this.style.top) - this.offsetHeight + 'px';
+        }
+        if(e.keyCode === 40){
+            mouse.style.top = parseInt(this.style.top) + this.offsetHeight + 'px';
+        }
+    })
+</script>
+
+</body>
+
+</html>

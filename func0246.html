@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper{
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid black;
+            width: 800px;
+            height: 600px;
+            margin: 100px auto;
+        }
+        .box{
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            background-color: aqua;
+        }
+        .active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+<script>
+    var box = document.querySelectorAll('.box');
+    for(var i = 0; i < box.length; i++){
+        box[i].addEventListener('click', function (e) {
+            var target = e.target;
+            target.classList.toggle('active');
+        })
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form name="form">
+        <select name="sel" multiple>
+            <option value="Rock">Рок</option>
+            <option value="Blues" selected>Блюз</option>
+        </select>
+    </form>
+
+    <script>
+        var select = document.forms[0].elements.sel;
+        for(let i = 0; i < select.options.length; i++){
+            if(select.options[i].selected){
+                alert(select.options[i].value);
+            }
+        }
+
+        const option = new  Option('pop', 'pop', true, true);
+        select.appendChild(option);
+        option.selected = true;
+    </script>
+</body>
+</html>

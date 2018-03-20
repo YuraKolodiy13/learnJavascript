@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .order[order-state="new"] {
+            color: green;
+        }
+
+        .order[order-state="pending"] {
+            color: blue;
+        }
+
+        .order[order-state="canceled"] {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="order" order-state="new">
+    Новый заказ.
+</div>
+
+<div class="order" order-state="pending">
+    Ожидающий заказ.
+</div>
+
+<div class="order" order-state="canceled">
+    Заказ отменён.
+</div>
+
+<script>
+    var div = document.querySelectorAll('div');
+
+    for(var i = 0; i < div.length; i++){
+        div[i].addEventListener('click', function (e) {
+            var target = e.target;
+            target.setAttribute('order-state', 'canceled');
+        })
+    }
+</script>
+
+</body>
+</html>

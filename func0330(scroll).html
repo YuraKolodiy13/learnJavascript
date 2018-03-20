@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            border: 1px solid black;
+            overflow: auto;
+            padding: 5px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+
+Прокрутка: <span class="delta">0</span>
+<div class="box">
+    При прокрутке колёсика мыши над этим элементом, он будет масштабироваться.
+</div>
+
+<script>
+    let scale = 1;
+    const elem = document.querySelector('.box');
+    elem.addEventListener("mousewheel", onWheel);
+
+    function onWheel(e) {
+        e.preventDefault();
+        let delta = e.deltaY;
+        if(delta > 0){
+            scale += 0.05;
+        }else {
+            scale -= 0.05;
+        }
+        elem.style.transform = 'scale('+scale+')';
+    }
+</script>
+
+</body>
+</html>

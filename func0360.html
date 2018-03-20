@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.polyfill.io/v1/polyfill.js?features=Element.prototype.closest"></script>
+    <style>
+        .voter {
+            font-family: Consolas, "Lucida Console", monospace;
+            font-size: 18px;
+        }
+
+        .up,
+        .down {
+            cursor: pointer;
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="voter" class="voter">
+    <span class="down" onclick="voter.toDown()">—</span>
+    <span class="vote">0</span>
+    <span class="up" onclick="voter.toUp()">+</span>
+</div>
+
+<script>
+    function Voter(options) {
+        const elem = options.elem;
+        const step = options.step;
+        const vote = elem.querySelector('.vote');
+
+        elem.addEventListener('click', function (e) {
+            if(e.target.closest('.down')){
+                toDown();
+            }
+            if(e.target.closest('.up')){
+                toUp();
+            }
+        });
+        elem.addEventListener('mousedown', function (e) {
+            e.preventDefault();
+        });
+
+        function toUp() {
+            vote.innerHTML = +vote.innerHTML + step;
+        }
+        function toDown() {
+            vote.innerHTML -= step;
+        }
+        function setVote (num) {
+            vote.innerHTML = num;
+        }
+    }
+
+    const voter = new Voter({
+        elem: document.getElementById('voter'),
+        step: 2
+    });
+
+    voter.setVote(121);
+</script>
+
+</body>
+
+</html>

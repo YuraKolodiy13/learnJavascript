@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function makeArmy() {
+
+        var shooters = [];
+
+        return function () {
+            for (var i = 0; i < 10; i++) {
+                shooters.push(i);
+            }
+            return shooters;
+        };
+    }
+
+
+    var army = makeArmy();
+
+    console.log(army());
+    console.log(army());
+</script>
+
+</body>
+</html>

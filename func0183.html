@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var obj = {
+        person1Age: 28,
+        person1Name: 'Ivanov',
+        person2Age: 38,
+        person2Name: 'Petrov',
+        person3Age: 48,
+        person3Name: 'Sidorov'
+    };
+
+    var names = [];
+
+
+    function extractNumber(obj) {
+        var ages = [];
+        for(var prop in obj){
+            if(typeof obj[prop] == 'number'){
+                ages.push(obj[prop]);
+            }
+        }
+        alert(ages);
+        return ages;
+    }
+    function extractString(obj) {
+        var names = [];
+        for(var prop in obj){
+            if(typeof obj[prop] == 'string'){
+                names.push(obj[prop]);
+            }
+        }
+        alert(names);
+        return names;
+    }
+    extractString(obj);
+    extractNumber(obj);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var array = [];
+    do{
+        var value = prompt('write a number', '0');
+        array.push(+value);
+    }while(value !== null);
+
+    var result = 0;
+    if(value === null){
+        for (var i = 0; i < array.length; i++){
+            result += array[i];
+
+        }
+    }
+    alert(result);
+</script>
+
+</body>
+</html>

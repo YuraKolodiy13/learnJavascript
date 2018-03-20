@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li>1</li>
+    <li>2</li>
+</ul>
+<p>Lorem ipsum dolor sit amet.</p>
+
+<script>
+    var ul = document.body.children[0];
+    var li = '<li>3</li><li>4</li><li>5</li>';
+    ul.insertAdjacentHTML('beforeEnd', '<li>3</li><li>4</li><li>5</li>');
+</script>
+
+</body>
+</html>

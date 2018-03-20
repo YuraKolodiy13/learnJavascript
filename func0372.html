@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li:nth-child(3){
+            border: 1px solid green;
+        }
+        li:nth-child(3)::before{
+            content: '[[';
+        }
+        li:nth-child(3)::after{
+            content: 'fuck';
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolore dolores est, eum fugit, impedit libero, magnam molestiae obcaecati officia optio quaerat ratione rem saepe sequi sint tempore velit veritatis.</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolore dolores est, eum fugit, impedit libero, magnam molestiae obcaecati officia optio quaerat ratione rem saepe sequi sint tempore velit veritatis.</li>
+    <li value="21">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolore dolores est, eum fugit, impedit libero, magnam molestiae obcaecati officia optio quaerat ratione rem saepe sequi sint tempore velit veritatis.</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolore dolores est, eum fugit, impedit libero, magnam molestiae obcaecati officia optio quaerat ratione rem saepe sequi sint tempore velit veritatis.</li>
+    <li value="432">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolore dolores est, eum fugit, impedit libero, magnam molestiae obcaecati officia optio quaerat ratione rem saepe sequi sint tempore velit veritatis.</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolore dolores est, eum fugit, impedit libero, magnam molestiae obcaecati officia optio quaerat ratione rem saepe sequi sint tempore velit veritatis.</li>
+</ul>
+
+</body>
+</html>

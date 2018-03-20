@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var obj = {
+        name: 'yosy',
+        age: 22,
+        sleep: false,
+        arr: ['a', 'b', 'x', [1, 2]],
+        toJSON: function () {
+            return this.name + ': ' + this.age;
+        }
+    };
+
+    var jsonString = JSON.stringify(obj);
+
+    var newObj = JSON.parse(jsonString);
+
+    alert(jsonString);
+
+    for(var prop in obj){
+        alert(prop + ': ' + obj[prop]);
+    }
+</script>
+
+</body>
+</html>

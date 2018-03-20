@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function isEmpty(obj) {
+        for(var prop in obj){
+            return false;
+        }
+        return true;
+    }
+
+    var todoList = {};
+
+    console.log(isEmpty(todoList));
+
+    todoList['homework'] = 'lesson5';
+
+    console.log(isEmpty(todoList));
+</script>
+
+</body>
+</html>

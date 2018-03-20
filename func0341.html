@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="form">
+    <select name="genre" multiple>
+        <option value="blues" selected>Мягкий блюз</option>
+        <option value="rock" selected>Жёсткий рок</option>
+        <option value="classic">Классика</option>
+    </select>
+</form>
+
+<script>
+    var form = document.forms[0];
+    var select = form.elements.genre;
+
+    for (var i = 0; i < select.options.length; i++) {
+        var option = select.options[i];
+        if(option.selected) {
+            alert( option.value );
+        }
+    }
+</script>
+</body>
+</html>

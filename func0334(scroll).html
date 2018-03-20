@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        #matrix {
+            width: 400px;
+            margin: auto;
+            overflow: auto;
+            text-align: justify;
+        }
+        #updown {
+            position: fixed;
+            top: 30px;
+            left: 10px;
+            cursor: pointer;
+        }
+        #updown {
+            height: 9px;
+            width: 14px;
+            position: fixed;
+            top: 30px;
+            left: 10px;
+            cursor: pointer;
+        }
+
+        #updown.up::before {
+            content: '▲';
+        }
+
+        #updown.down::before {
+            content: '▼';
+        }
+
+    </style>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+Символы для стрелок:
+<div id="updown"></div>
+<div id="matrix">
+    <script>
+        for (let i = 0; i < 2000; i++) document.writeln(i)
+    </script>
+</div>
+
+<script>
+
+    var updownElem = document.getElementById('updown');
+
+    var pageYLabel = 0;
+
+    updownElem.onclick = function() {
+        var pageY = window.pageYOffset || document.documentElement.scrollTop;
+
+        switch (this.className) {
+            case 'up':
+                pageYLabel = pageY;
+                window.scrollTo(0, 0);
+                this.className = 'down';
+                break;
+
+            case 'down':
+                window.scrollTo(0, pageYLabel);
+                this.className = 'up';
+        }
+
+    }
+
+    window.onscroll = function() {
+        var pageY = window.pageYOffset || document.documentElement.scrollTop;
+        var innerHeight = document.documentElement.clientHeight;
+
+        switch (updownElem.className) {
+            case '':
+                if (pageY > innerHeight) {
+                    updownElem.className = 'up';
+                }
+                break;
+
+            case 'up':
+                if (pageY < innerHeight) {
+                    updownElem.className = '';
+                }
+                break;
+
+            case 'down':
+                if (pageY > innerHeight) {
+                    updownElem.className = 'up';
+                }
+                break;
+
+        }
+    }
+</script>
+</body>
+
+</html>

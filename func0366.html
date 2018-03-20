@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        .form{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid black;
+            box-sizing: border-box;
+            z-index: 100;
+            background-color: #fff;
+            padding-left: 100px;
+            margin: auto;
+            text-align: center;
+        }
+        img{
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+        .wrapper{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: transparent;
+        }
+        .wrapper::after{
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            left: 20px;
+            bottom: 20px;
+            background-color: red;
+            opacity: .5;
+        }
+        body{
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+        label{
+            display: block;
+            text-align: right;
+            padding: 20px;
+        }
+        input{
+            width: 100px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body style="height:2000px">
+
+<p>Текст Текст Текст</p>
+
+<button onclick="alert('Эта кнопка не должна работать')">Эта кнопка не работает</button>
+
+<p>Текст Текст Текст</p>
+
+
+
+<div class="wrapper">
+    <form action="" class="form">
+        <img src="https://js.cx/clipart/key.png" />
+        <p>welcome</p>
+        <label for="name">логин<input type="text" id="name"></label>
+        <label for="password">пароль<input type="password" id="password"></label>
+        <button type="submit">войти</button>
+    </form>
+</div>
+
+
+</body>
+
+</html>

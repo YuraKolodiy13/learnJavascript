@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<img src="https://js.cx/clipart/ball.svg" style="cursor: pointer; position: absolute; left: 193px; top: 92px; z-index: 1000;" width="40" height="40" id="ball">
+
+
+<script>
+    const ball = document.querySelector('#ball');
+    
+    ball.addEventListener('mousedown', function (e) {
+        let coords = getCoords(ball);
+        let shiftX = e.pageX - coords.left;
+        let shiftY = e.pageY - coords.top;
+
+        ball.style.position = 'absolute';
+        document.body.appendChild(ball);
+        moveAt(e);
+        ball.style.zIndex = 1000;
+
+        function moveAt(e) {
+            ball.style.left = e.pageX - shiftX + 'px';
+            ball.style.top = e.pageY - shiftY + 'px';
+            console.log(32)
+        }
+
+        function mouseMove(e) {
+            moveAt(e);
+        }
+
+        document.addEventListener('mousemove', mouseMove);
+
+        ball.addEventListener('mouseup', function () {
+            document.removeEventListener('mousemove', mouseMove);
+            ball.removeEventListener('mousemove', mouseMove);
+        })
+    });
+
+    ball.addEventListener('dragstart', function (e) {
+        e.preventDefault();
+    });
+
+    function getCoords(elem) {
+        const box = elem.getBoundingClientRect();
+        return {
+            top: box.top + pageYOffset,
+            left: box.left + pageXOffset
+        }
+    }
+</script>
+</body>
+</html>

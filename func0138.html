@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function add(a, b) {
+        return a + b;
+    }
+
+    function mult(a, b) {
+        return a * b;
+    }
+
+    function applyF(binaryFunc) {
+        return function (a) {
+            return function (b) {
+                return binaryFunc(a, b);
+            }
+        }
+    }
+
+   var addFunc = applyF(add);
+    console.log(addFunc(2)(3));
+    console.log(applyF(mult)(3)(4));
+</script>
+
+</body>
+</html>

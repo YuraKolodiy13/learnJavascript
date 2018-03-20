@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var list = {
+        value: 1,
+        next: {
+            value: 2,
+            next: {
+                value: 3,
+                next: {
+                    value: 4,
+                    next: null
+                }
+            }
+        }
+    };
+
+    function printList(list) {
+        var count = list;
+
+        while (count){
+            alert(count.value);
+            count = count.next;
+        }
+    }
+
+    printList(list);
+</script>
+
+</body>
+</html>

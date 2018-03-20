@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!--<link rel="stylesheet" href="style.css">-->
+    <style>
+        .arrow {
+            padding: 0;
+            background: #ddd;
+            border-radius: 15px;
+            border: 1px solid gray;
+            font-size: 24px;
+            line-height: 24px;
+            color: #444;
+            display: block;
+            position: absolute;
+            top: 40%;
+        }
+        .prev{
+            left: 7px;
+        }
+        .next{
+            right: 7px;
+        }
+
+        .arrow:focus {
+            outline: none;
+        }
+
+        .arrow:hover {
+            background: #ccc;
+            cursor: pointer;
+        }
+
+        .slider{
+            width: 400px;
+            height: 130px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color: #EEEEEE;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            padding: 10px 40px;
+        }
+        .slider__wrapper{
+            width: 390px;
+            overflow: hidden;
+            margin: auto;
+        }
+        .slider__imgWrap {
+            /*height: 130px;*/
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: 9999px;
+            display: flex;
+
+
+            /* убрать между inline-block li лишние пробелы, которые есть в HTML */
+            /* http://davidwalsh.name/remove-whitespace-inline-block */
+
+            font-size: 0;
+        }
+
+        ul img {
+            width: 130px;
+            height: 130px;
+            /* по умолчанию inline, но в ряде браузеров это даст лишнее пространство вокруг элементов */
+
+            display: block;
+        }
+
+        ul li {
+            /* если в HTML между элементами <li>..</li> есть пробелы, то они будут видны на странице,
+            чтобы их избежать, нужно либо писать <li>..</li><li>..</li> вплотную, либо не ставить закрывающие </li> */
+
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ваша верстка виджета, ваши стили -->
+
+
+<div class="slider">
+    <div class="slider__wrapper">
+        <ul class="slider__imgWrap">
+            <li><img src="https://js.cx/carousel/1.png"></li>
+            <li><img src="https://js.cx/carousel/2.png"></li>
+            <li><img src="https://js.cx/carousel/3.png"></li>
+            <li><img src="https://js.cx/carousel/4.png"></li>
+            <li><img src="https://js.cx/carousel/5.png"></li>
+            <li><img src="https://js.cx/carousel/6.png"></li>
+            <li><img src="https://js.cx/carousel/7.png"></li>
+            <li><img src="https://js.cx/carousel/8.png"></li>
+            <li><img src="https://js.cx/carousel/9.png"></li>
+            <li><img src="https://js.cx/carousel/10.png"></li>
+        </ul>
+    </div>
+    <button class="arrow prev">⇦</button>
+    <button class="arrow next">⇨</button>
+</div>
+
+
+<script>
+    // этот код помечает картинки цифрами, для удобства разработки
+    // его можно убрать, если не нужен
+//    const lis = document.querySelectorAll('li');
+//
+//    for (let i = 0; i < lis.length; i++) {
+//        lis[i].style.position = 'relative';
+//        const span = document.createElement('span');
+//        span.style.cssText = 'position:absolute;left:0;top:0';
+//        span.innerHTML = i + 1;
+//        lis[i].appendChild(span);
+//    }
+
+    const width = 130;
+    const count = 3;
+
+    const slider = document.querySelector('.slider');
+    const ul = slider.querySelector('ul');
+    const li = slider.querySelectorAll('li');
+
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    let position = 0;
+
+    prev.addEventListener('click', function () {
+        position = Math.min(position + width * count, 0);
+        console.log(position);
+        ul.style.marginLeft = position + 'px';
+    });
+    next.addEventListener('click', function () {
+        position = Math.max(position - width * count, -width * (li.length - count));
+        console.log(position);
+        ul.style.marginLeft = position + 'px';
+    })
+</script>
+</body>
+
+</html>

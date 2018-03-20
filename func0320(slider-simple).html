@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .slider{
+            position: relative;
+            width: 850px;
+            margin: 100px auto;
+        }
+
+        .slider__wrapper{
+            width: 800px;
+            height: 500px;
+            overflow: hidden;
+            margin: auto;
+        }
+        .btn{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-decoration: none;
+            color: black;
+            font-size: 34px;
+            font-weight: bold;
+        }
+        .btn:hover{
+            color: red;
+        }
+        .prev{
+            left: 0;
+        }
+        .next{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider">
+    <div class="slider__wrapper">
+        <img src="https://grandgames.net/puzzle/source/priroda..jpg" alt="" class="img">
+    </div>
+    <a href="#" class="btn prev"><</a>
+    <a href="#" class="btn next">></a>
+</div>
+
+<script>
+    let imgArr = ["https://grandgames.net/puzzle/source/priroda..jpg",
+    "http://www.latexdruk.com.ua/wp-content/uploads/12priroda/120001.jpg",
+    "http://franceliste.info/images/atikl/priroda-francii.jpg",
+    "http://www.gogetnews.info/uploads/posts/2016-04/1459663206_zhi2.jpg",
+    "http://www.gogetnews.info/uploads/posts/2016-02/1456554453_krasota-prirody-ukrainskiy-fotograf.jpg"];
+
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    const img = document.querySelector('.img');
+    let i = 0;
+    
+    next.addEventListener('click', function (e) {
+        e.preventDefault();
+        if(i >= imgArr.length - 1){
+            i = 0;
+        }else {
+            i++;
+        }
+        img.src = imgArr[i]
+    });
+
+    prev.addEventListener('click', function (e) {
+        e.preventDefault();
+        if(i <= 0){
+            i = imgArr.length - 1;
+        }else {
+            i--;
+        }
+        img.src = imgArr[i]
+    });
+
+    
+</script>
+
+</body>
+</html>

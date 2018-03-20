@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .clock{
+            background-color: black;
+            color: red;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 100px;
+        }
+
+        .hh{
+            color: lightblue;
+        }
+        .mm{
+            color: green;
+        }
+        .ss{
+            color: darkorchid;
+        }
+    </style>
+</head>
+<body>
+
+<div class="clock">
+    <span class="hh"></span>
+    <span>:</span>
+    <span class="mm"></span>
+    <span>:</span>
+    <span class="ss"></span>
+</div>
+
+
+<script>
+    function printTime() {
+        var d = new Date();
+        var hours = d.getHours();
+        var minutes = d.getMinutes();
+        var seconds = d.getSeconds();
+
+        var hour = document.querySelector('.hh');
+        var min = document.querySelector('.mm');
+        var sec = document.querySelector('.ss');
+
+        if(hours < 10){
+            hour.innerHTML = '0' + hours;
+        }else{
+            hour.innerHTML = hours;
+        }
+
+        if(minutes < 10){
+            min.innerHTML = '0' + minutes;
+        }else{
+            min.innerHTML = minutes;
+        }
+
+        if(seconds < 10){
+            sec.innerHTML = '0' + seconds;
+        }else{
+            sec.innerHTML = seconds;
+        }
+
+    }
+
+    setInterval(printTime, 1000);
+</script>
+</body>
+</html>

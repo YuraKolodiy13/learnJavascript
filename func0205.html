@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function date() {
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        var miliseconds = date.getMilliseconds();
+
+        document.body.innerHTML = hours + ':' + minutes + ':' + seconds + ':' + miliseconds;
+    }
+
+    setTimeout(date, 1000);
+    setInterval(date, 1);
+</script>
+
+</body>
+</html>

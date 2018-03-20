@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function Factory(color, size) {
+        this.color = color || 'green';
+        this.size = size || 500;
+
+        this.temper = 25;
+        this.volume = 0;
+
+        this.fill = function (volume, temper) {
+            this.volume = volume;
+            this.temper = temper;
+        }
+    }
+
+    var cup1 = new Factory('blue', 1000);
+
+
+    console.log(cup1);
+
+    cup1.fill(300, 90);
+    console.log(cup1);
+
+
+    var stakan = {
+        color: 'transparent'
+    };
+
+    cup1.fill.call(stakan, 200, 400);
+
+//    stakan.fill = cup1.fill;
+//    stakan.fill(200, 30);
+    console.log(stakan);
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var obj1 = {
+        className: 'open menu'
+    };
+    var obj2 = {
+        className: 'me last'
+    };
+    var obj3 = {
+        className: ''
+    };
+
+    function addClass(obj, cls) {
+        var classes;
+        if(obj.className){
+            classes = obj.className.split(' ');
+        }else {
+            classes = [];
+        }
+
+        for(var i = 0; i < classes.length; i++){
+            if(classes[i] == cls){
+                return;
+            }
+        }
+        classes.push(cls);
+        obj.className = classes.join(' ');
+    }
+    addClass(obj1, 'new');
+    addClass(obj2, 'new');
+    addClass(obj1, 'open');
+    addClass(obj2, 'open');
+    addClass(obj1, 'me');
+    addClass(obj2, 'me');
+    addClass(obj3, 'me');
+
+    console.log(obj1);
+    console.log(obj2);
+    console.log(obj3);
+</script>
+
+</body>
+</html>

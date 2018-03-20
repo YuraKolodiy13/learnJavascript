@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function sum (a,b){
+        if(arguments[1] == undefined){
+            return function (b) {
+                return a + b;
+            }
+        }else {
+            return a + b;
+        }
+    }
+
+    alert(sum(2,3));
+
+    alert(sum(2)(5));
+</script>
+
+</body>
+</html>

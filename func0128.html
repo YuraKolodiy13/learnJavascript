@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function makeBuffer() {
+        var result = '';
+        
+        return function (piece) {
+            if(arguments.length == 0){
+                return result;
+            }
+            result += piece;
+        };
+    }
+
+    var buffer = makeBuffer();
+
+
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+
+    alert( buffer() ); // Замыкания Использовать Нужно!
+</script>
+
+</body>
+</html>

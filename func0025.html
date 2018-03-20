@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function pow(x, n) {
+        if (n == 0){
+            return 1;
+        }else if (n == 1){
+            return x;
+        }else {
+            return x * pow(x, n - 1);
+        }
+    }
+    var x = prompt('number');
+    var n = prompt('number');
+    alert(pow(x, n));
+</script>
+
+</body>
+</html>

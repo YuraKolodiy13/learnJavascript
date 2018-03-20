@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var date = new Date(2014,0,3);
+
+    function getWeekDay(date) {
+        var days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+        return days[date.getDay()];
+    }
+    alert( getWeekDay(date) );
+
+    var dates = new Date(2010, 0, 3); // 3 января 2014
+    alert( dates.toLocaleString('ua', {weekday: 'short'}) ); // 'Пт'
+</script>
+
+</body>
+</html>

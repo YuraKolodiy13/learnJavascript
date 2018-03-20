@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    function camelize(str){
+        var newStr = str.split('-');
+
+        for (var i = 1; i < newStr.length; i++){
+            newStr[i] = newStr[i].charAt(0).toUpperCase() + newStr[i].slice(1);
+        }
+
+        str = newStr.join('');
+
+        console.log(str);
+    }
+
+    camelize("background-color");
+    camelize("list-style-image");
+    camelize("-webkit-transition");
+</script>
+
+</body>
+</html>

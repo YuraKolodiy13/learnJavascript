@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var arr1 = ['apple', 'pineapple', 'cherry'];
+    var arr2 = ['berry', 'banana', 'icecream'];
+
+    for(var i = 0; i < arr1.length; i++){
+        console.log(i + ': ' + arr1[i] + ' (Array:' + arr1 + ')');
+    }
+
+    arr2.forEach(function (item, i, arr2) {
+        console.log(i + ': ' + arr1[i] + ' (Array:' + arr2 + ')');
+    })
+</script>
+
+</body>
+</html>

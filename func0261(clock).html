@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .clock{
+            background-color: black;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        .clock span{
+            display: inline-block;
+            border-radius: 4px;
+            background-color: cyan;
+            padding: 10px;
+            font-size: 24px;
+        }
+        b{
+            color: red;
+            font-size: 24px;
+            padding: 5px;
+        }
+        .hh{
+            color: red;
+
+        }
+        .mm{
+            color: blue;
+        }
+        .ss{
+            color: green;
+        }
+        .btn{
+            color: white;
+            background-color: black;
+            padding: 10px 30px;
+            border-radius: 50px;
+            border: none;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="clock">
+    <span class="hh"></span><b>:</b><span class="mm"></span><b>:</b><span class="ss"></span>
+</div>
+<div class="wrapper">
+    <button class="btn" onclick="run()">run</button>
+    <button class="btn" onclick="stop()">stop</button>
+
+</div>
+
+<script>
+    function printTime() {
+        var time = new Date();
+        var hours = time.getHours();
+        var minutes = time.getMinutes();
+        var seconds = time.getSeconds();
+        var hh = document.querySelector('.hh');
+        var mm = document.querySelector('.mm');
+        var ss = document.querySelector('.ss');
+
+        var bg = document.querySelectorAll('.clock span');
+
+        hh.innerHTML = (hours < 10) ? '0' + hours : hours;
+        mm.innerHTML = (minutes < 10) ? '0' + minutes : minutes;
+        ss.innerHTML = (seconds < 10) ? '0' + seconds : seconds;
+
+        for(var i = 0; i < bg.length; i++){
+
+            bg[i].style.backgroundColor = 'yellow';
+        }
+    }
+    var timer;
+    function run() {
+        timer = setInterval(printTime, 1000);
+        printTime();
+    }
+
+    function stop() {
+        clearInterval(timer);
+    }
+
+</script>
+</body>
+</html>

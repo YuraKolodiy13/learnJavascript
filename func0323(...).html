@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let staticLanguages = ['C', 'C++', 'Java'];
+    let dynamicLanguages = ['Ruby', 'PHP', 'Javascript'];
+
+    let languages = ['C#', 'Python'];
+
+    languages = [...staticLanguages, ...dynamicLanguages, ...languages];
+    console.log(languages);
+
+    let add = (x, y, z, q) => console.log(x + y + z + q);
+    let numbers = [2, 4, 1, 2];
+
+    add(...numbers);
+</script>
+
+</body>
+</html>

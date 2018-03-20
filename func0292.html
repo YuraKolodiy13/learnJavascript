@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #moving-div {
+            border: 5px groove green;
+            padding: 5px;
+            margin: 10px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+Before Before Before
+
+<div id="moving-div">
+    Text Text Text<br>
+    Text Text Text<br>
+</div>
+
+After After After
+
+<script>
+    var div = document.getElementById('moving-div');
+    div.style.position = 'absolute';
+    div.style.right = div.style.top = 0;
+
+    var div2 = div.cloneNode(false);
+    div2.style.position = '';
+    div2.style.backgroundColor = 'gray';
+    div2.style.border = 'none';
+    div2.style.height = div.clientHeight + 'px';
+    document.body.insertBefore(div2, div);
+</script>
+
+</body>
+</html>

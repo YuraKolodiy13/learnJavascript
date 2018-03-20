@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    var arr = [22, 'yopte', 12, 'game', 54, 4, 9, 'some', 5];
+
+    function compareNumber(a, b) {
+        if(+a && +b){
+            return a - b;
+        }else if(+a){
+            return -1;
+        }else {
+            return 1;
+        }
+    }
+
+    arr.sort(compareNumber);
+    console.log(arr);
+</script>
+
+</body>
+</html>

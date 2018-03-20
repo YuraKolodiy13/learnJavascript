@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function identity(x) {
+        return function () {
+            return x;
+        }
+    }
+    var idf = identity(3);
+    console.log(idf()); // 3
+
+    console.log(identity(10));
+</script>
+
+</body>
+</html>

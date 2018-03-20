@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function getDecimal(num) {
+        var whole;
+        var decimal;
+        if (num > 0){
+            whole = Math.floor(num);
+            decimal = num - whole;
+        }else {
+            whole = Math.ceil(num);
+            decimal = -(num - whole);
+        }
+
+        return decimal.toFixed(1);
+    }
+    alert(getDecimal(10.234));
+    alert(getDecimal(1.756));
+    alert(getDecimal(0));
+    alert(getDecimal(-2.278));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        .slider {
+            border-radius: 5px;
+            background: #E0E0E0;
+            background: -moz-linear-gradient(left top, #E0E0E0, #EEEEEE) repeat scroll 0 0 transparent;
+            background: -webkit-gradient(linear, left top, right bottom, from(#E0E0E0), to(#EEEEEE));
+            background: linear-gradient(left top, #E0E0E0, #EEEEEE);
+            width: 310px;
+            height: 15px;
+            margin: 5px;
+        }
+
+        .thumb {
+            width: 10px;
+            height: 25px;
+            border-radius: 3px;
+            position: relative;
+            left: 10px;
+            top: -5px;
+            background: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="slider" class="slider">
+    <div class="thumb"></div>
+</div>
+
+<script>
+//    function Thumb() {
+//        const slider = document.querySelector('.slider');
+//        const thumb = document.querySelector('.thumb');
+//
+//        thumb.addEventListener('mousedown', function () {
+//            this.style.position = 'absolute';
+//            this.style.left = pageXOffset;
+//        })
+//    }
+//    const thumber = new Clock();
+//    thumber();
+
+    const slider = document.querySelector('.slider');
+    const thumb = document.querySelector('.thumb');
+
+    thumb.addEventListener('mousedown', function (e) {
+        this.style.position = 'absolute';
+        this.style.left = this.getBoundingClientRect().left + e.clientWidth;
+        this.style.top = this.getBoundingClientRect().top + e.clientHeight;
+    })
+</script>
+
+</body>
+
+</html>

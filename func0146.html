@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function makeBuffer() {
+        var text = '';
+
+        function buffer(piece) {
+            if(arguments.length == 0){
+                return text;
+            }
+            text += piece;
+        }
+        buffer.clear = function () {
+            text = '';
+        };
+        return buffer;
+    }
+
+    var buffer = makeBuffer();
+
+    // добавить значения к буферу
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() ); // Тест тебя не съест
+
+    buffer.clear();
+
+    alert( buffer() );
+</script>
+
+</body>
+</html>

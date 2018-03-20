@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a{
+            display: inline-block;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Events Listener</h1>
+    <a href="#" class="btn1">Link</a>
+    <a href="#" class="btn2">unsubscribe1</a>
+    <a href="#" class="btn3">unsubscribe2</a>
+
+    <script>
+        const btn1 = document.querySelector('.btn1');
+        const btn2 = document.querySelector('.btn2');
+        const btn3 = document.querySelector('.btn3');
+
+        let onclick1 = () => document.body.style.backgroundColor = getRandomColor();
+        //        function onclick1() {
+        //            document.body.style.backgroundColor = getRandomColor();
+        //        }
+        let onclick2 = () => document.body.style.color = getRandomColor();
+//        function onclick2() {
+//            document.body.style.color = getRandomColor();
+//        }
+        btn1.addEventListener('click', onclick1);
+        btn1.addEventListener('click', onclick2);
+
+        let unsubscribe1 = () => btn1.removeEventListener('click', onclick2);
+        let unsubscribe2 = () => btn1.removeEventListener('click', onclick1);
+
+        btn2.addEventListener('click', unsubscribe1);
+        btn3.addEventListener('click', unsubscribe2);
+
+//        function getRandomColor() {
+//            let letters = '0123456789ABCDEF'.split('');
+//            let color = '#';
+//
+//            for(let i = 0; i < 6; i++){
+//                color += letters[Math.floor(Math.random() * 16)];
+//                console.log(color);
+//            }
+//            return color;
+//        }
+        let getRandomColor = () =>{
+            let letters = '0123456789ABCDEF'.split('');
+            let color = '#';
+
+            for(let i = 0; i < 6; i++){
+                color += letters[Math.floor(Math.random() * 16)];
+                console.log(color);
+            }
+            return color;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function getSecondsToday(){
+        var result;
+
+        var date = new Date();
+        console.log(+date);
+        var date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        console.log(+date2);
+        return result = date - date2;
+    }
+    console.log(getSecondsToday());
+</script>
+
+</body>
+</html>

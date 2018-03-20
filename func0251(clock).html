@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hour{
+            color: red;
+        }
+        .min{
+            color: green;
+        }
+        .sec{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="clock">
+    <span class="hour"></span><span class="min"></span><span class="sec"></span>
+</div>
+
+<script>
+    function clock() {
+        var data = new Date();
+        var hours = data.getHours();
+        var minutes = data.getMinutes();
+        var seconds = data.getSeconds();
+        var hour = document.querySelector('.hour');
+        var min = document.querySelector('.min');
+        var sec = document.querySelector('.sec');
+        var clock = document.querySelector('.clock');
+
+
+        if(seconds < 10){
+            seconds = '0' + seconds;
+        }
+        if(minutes < 10){
+            minutes = '0' + minutes;
+        }
+        hour.innerHTML = hours + ':';
+        clock.children[2].innerHTML = seconds;
+        clock.children[1].innerHTML = minutes + ':';
+    }
+    setInterval(clock, 10);
+</script>
+</body>
+</html>

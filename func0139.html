@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var calc = {
+        read: function () {
+            this.a = +prompt('write a number', '0');
+            this.b = +prompt('write a number', '0');
+        },
+        sum: function () {
+            return this.a + this.b;
+        },
+        mult: function () {
+            return this.a * this.b;
+        }
+    };
+        calc.read();
+        console.log(calc.sum());
+        console.log(calc.mult());
+</script>
+
+</body>
+</html>

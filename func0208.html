@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function print() {
+        var timer = setTimeout(function go() {
+            alert('some');
+            timer = setTimeout(go, 1000);
+        }, 1000);
+        clearTimeout(go, 5000);
+    }
+
+    print();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .notification {
+            position: fixed;
+            z-index: 1000;
+            padding: 5px;
+            border: 1px solid black;
+            font: normal 20px Georgia;
+            background: white;
+            text-align: center;
+        }
+
+        .welcome {
+            background: red;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    function showNotification(options){
+        var span = document.createElement('div');
+        span.className = "notification";
+        span.style.top = (options.top || 0) + 'px';
+        span.style.right = (options.right || 0) + 'px';
+        span.classList.toggle(options.className);
+        span.innerHTML = options.html;
+        document.body.appendChild(span);
+
+        setTimeout(function () {
+            document.body.removeChild(span)
+        }, 1500);
+    }
+
+    var i = 0;
+    setInterval(function () {
+        showNotification({
+            top: 10,
+            right: 10,
+            html: 'Привет ' + ++i,
+            className: "welcome"
+        });
+    }, 2000);
+</script>
+
+</body>
+</html>

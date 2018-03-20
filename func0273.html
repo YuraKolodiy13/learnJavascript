@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper{
+            border: 1px solid red;
+        }
+        p{
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <p>Lorem ipsum dolor.</p>
+    <p>Lorem ipsum dolor.</p>
+    <p>Lorem ipsum dolor.</p>
+</div>
+
+<script>
+    var wrapper = document.querySelector('.wrapper');
+    var p = document.createElement('p');
+    var txt = document.createTextNode('some about you');
+    p.appendChild(txt);
+    wrapper.appendChild(p);
+
+    var p2 = document.createElement('p');
+    p2.innerHTML = 'some about me';
+    wrapper.appendChild(p2);
+
+    var wrapper2 = wrapper.cloneNode(true);
+    wrapper.appendChild(wrapper2);
+
+    var wrapper3 = wrapper.cloneNode(true);
+    wrapper.appendChild(wrapper3);
+
+    var wrapper4 = wrapper.cloneNode();
+    wrapper.appendChild(wrapper4);
+
+    wrapper4.style.backgroundColor = 'yellow';
+
+</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Селект</title>
+    <!--<script src="https://cdn.polyfill.io/v1/polyfill.js?features=CustomEvent,Element.prototype.closest"></script>-->
+    <style>
+        .customselect {
+            width: 200px;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .customselect .title {
+            height: 20px;
+            border: 2px groove #ADD8E6;
+            background: white;
+            width: 200px;
+            box-sizing: border-box;
+            padding: 2px;
+            line-height: 14px;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .customselect li {
+            padding: 2px;
+            cursor: pointer;
+        }
+
+        .customselect li:nth-child(even) {
+            background-color: #f0f8ff;
+        }
+
+        .customselect li:hover {
+            background-color: #7fffd4;
+        }
+
+        .customselect ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: none;
+            position: absolute;
+            z-index: 1000;
+            background: white;
+            width: 200px;
+            border-bottom: 1px solid #add8e6;
+            border-left: 1px solid #add8e6;
+            border-right: 1px solid #add8e6;
+            box-sizing: border-box;
+        }
+
+        .customselect.open ul {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+<div>Последний результат: <span id="result">...</span></div>
+
+<div id="animal-select" class="customselect">
+    <button class="title">Выберите</button>
+    <ul>
+        <!-- значение хранится в свойстве data-value -->
+        <li data-value="bird">Птицы</li>
+        <li data-value="fish">Рыбы</li>
+        <li data-value="animal">Звери</li>
+        <li data-value="dino">Динозавры</li>
+        <li data-value="simplest">Одноклеточные</li>
+    </ul>
+</div>
+
+<div id="food-select" class="customselect">
+    <button class="title">Выберите</button>
+    <ul>
+        <li data-value="carnivore">Плотоядные</li>
+        <li data-value="herbivore">Травоядные</li>
+        <li data-value="omnivore">Всеядные</li>
+    </ul>
+</div>
+
+
+<script>
+    function CustomSelect(options) {
+        let elem = options.elem;
+
+        elem.addEventListener('click', function (e) {
+            if(e.target.className == 'title'){
+                toggle();
+            }else if(e.target.tagName == 'LI'){
+                setValue(e.target.innerHTML, e.target.dataset.value);
+                close();
+            }
+        });
+
+        let isOpen = false;
+
+        function onDocumentClick(e) {
+            if(!elem.contains(e.target)){
+                close();
+            }
+        }
+
+        function setValue(title, value) {
+            elem.querySelector('.title').innerHTML = title;
+
+            let widgetEvent = new CustomEvent('select', {
+                bubbles: true,
+                detail: {
+                    title: title,
+                    value: value
+                }
+            });
+
+            elem.dispatchEvent(widgetEvent);
+        }
+
+        function toggle() {
+            if(isOpen) close();
+            else open();
+        }
+
+        function open() {
+            elem.classList.add('open');
+            document.addEventListener('click', onDocumentClick);
+            isOpen = true;
+        }
+
+        function close() {
+            elem.classList.remove('open');
+            document.removeEventListener('click', onDocumentClick);
+            isOpen = false;
+        }
+    }
+
+    const animalSelect = new CustomSelect({
+        elem: document.getElementById('animal-select')
+    });
+
+    const foodSelect = new CustomSelect({
+        elem: document.getElementById('food-select')
+    });
+
+    document.addEventListener('select', function(event) {
+        document.getElementById('result').innerHTML = event.detail.value;
+    });
+</script>
+
+</body>
+
+</html>

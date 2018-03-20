@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .wrapper{
+            width: 500px;
+            margin: 100px auto;
+        }
+        .addTask{
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .addTask__title{
+            background-color: gainsboro;
+            padding: 10px;
+        }
+        .addTask__add{
+            padding: 15px;
+        }
+        .addTask input{
+            padding: 5px;
+        }
+        .btn{
+            background-color: dodgerblue;
+            padding: 10px 15px;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        hr{
+            border-top: none;
+            border-bottom-color: #dddddd;
+        }
+        .table{
+            border-top: 1px solid lightgray;
+            padding: 10px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table__body tr:nth-child(odd){
+            background-color: #EEEEEE;
+        }
+        .table .btn{
+            background-color: darkred;
+            padding: 15px;
+            position: relative;
+            display: block;
+            margin-left: auto;
+        }
+        .table .btn:hover{
+            background-color: #e50000;
+        }
+        .table .btn::before,
+        .table .btn::after{
+            content: '';
+            display: block;
+            width: 14px;
+            height: 2px;
+            background-color: black;
+            position: absolute;
+            left: 8px;
+        }
+        .table .btn::before{
+            transform: rotate(-45deg);
+        }
+        .table .btn::after{
+            transform: rotate(45deg);
+        }
+        .table td,
+        .table th{
+            padding: 5px 10px;
+        }
+        .table tr:hover{
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h1 class="toDo">ToDo</h1>
+    <hr>
+
+    <form action="#" class="addTask" name="newTask">
+        <div class="addTask__title">Add task:</div>
+        <div class="addTask__add">
+            <input type="text" class="addTask__input">
+            <button type="submit" class="btn">Add</button>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="table__id">#</th>
+                <th class="table__id">Что сделать</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody class="table__body">
+            <tr>
+                <th>1</th>
+                <td>Text</td>
+                <td><button type="button" class="btn"></button></td>
+                <td><button type="button" class="btn"></button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+    window.onload = function () {
+
+       const ToDo = function () {
+
+           this.modal = [
+               {text: 'купить молоко'},
+               {text: 'сходить на работу'},
+               {text: 'вигулять собаку'}
+           ];
+
+           this.input = document.querySelector('.addTask__input');
+           this.form = document.querySelector('.addTask');
+           this.todoList = document.querySelector('.table__body');
+
+           this.init();
+
+       };
+
+       ToDo.prototype.getLength = function () {
+            return this.modal.length;
+       };
+
+       //сгенерировать html
+        ToDo.prototype.getItemHtml = function (index, item) {
+            const tmp = '<tr><th>:index</th><td>:item</td><td><button type="button" class="btn btn-sort" data-index=":index"></button></td><td><button type="button" class="btn btn-delete" data-index=":index"></button></td></tr>';
+            return tmp.replace(/:index/gi, index).replace(/:item/gi, item);
+        };
+
+        //добавить новий елемент
+        ToDo.prototype.addItem = function (todoTxt) {
+            let newTodo = {text: todoTxt};
+            this.modal.push(newTodo);
+            this.appendRenderItem(this.getLength(), newTodo.text);
+        };
+
+        //добавить новий елемент в список в ДОМ
+       ToDo.prototype.appendRenderItem = function (index, item) {
+           let some = document.createElement('tr');
+           some.innerHTML = this.getItemHtml(index, item);
+           this.todoList.appendChild(some);
+       };
+
+       //адрендерить весь список полностью
+       ToDo.prototype.renderList = function () {
+           let list = '';
+           let __self = this;
+
+           this.modal.forEach(function (item, index) {
+               list += __self.getItemHtml(index + 1, item.text);
+           });
+
+           this.todoList.innerHTML = list;
+
+       };
+
+       //на сабмит форми
+        ToDo.prototype.onFormSubmit = function(e){
+            e.preventDefault();
+            this.addItem(this.input.value);
+            this.form.reset();
+        };
+
+        ToDo.prototype.removeItem = function (index) {
+            this.modal.splice(index-1, 1);
+            this.renderList();
+        };
+
+//        ToDo.prototype.sortItem = function (index) {
+//            let news = this.modal.splice(index-1, 1);
+//            this.modal.splice(index-1, news);
+//            this.todoList.insertBefore(this.modal[index-1], this.modal[index-2]);
+//            this.renderList();
+//        };
+
+        //инициализация
+        ToDo.prototype.init = function () {
+            let __self = this;
+            this.form.addEventListener('submit', function (e) {
+                __self.onFormSubmit(e)
+            });
+            this.todoList.addEventListener('click', function (e) {
+                let target = e.target;
+               if(target.classList.contains('btn-delete')){
+                   let index = target.dataset.index;
+                   __self.removeItem(index);
+               }
+//               if(target.classList.contains('btn-sort')){
+//                    let index = target.dataset.index;
+//                    __self.sortItem(index);
+//               }
+            });
+            this.renderList();
+        };
+
+       window.todo = new ToDo();
+    }
+</script>
+
+</body>
+</html>

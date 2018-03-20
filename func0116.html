@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function unique(arr) {
+       for(var i = 0; i < strings.length; i++){
+           var prop = arr[i];
+           obj[prop] = true;
+       }
+        return Object.keys(obj);
+    }
+    var obj = {};
+
+    var strings = ["кришна", "кришна", "харе", "харе",
+        "харе", "харе", "кришна", "кришна", "8-()"
+    ];
+
+    alert(unique(strings));
+</script>
+
+</body>
+</html>

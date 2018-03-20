@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var user = {
+        age: 27
+    };
+
+    Object.defineProperty(user, "name", {value: "Вася", configurable: true, writable: true, enumerable: true});
+    for (var key in user){
+        alert(user[key]);
+    }
+    user.name = 'some';
+    alert(user.name);
+</script>
+
+</body>
+</html>

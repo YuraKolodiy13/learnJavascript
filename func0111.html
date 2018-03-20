@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    arr = [5, 3, 8, 1, 0 , 2, 5];
+
+    function filterRangeInPlace(arr, a, b){
+        for (var i = 0; i < arr.length; i++){
+            if(arr[i] >= a && arr[i] <= b) continue;
+            arr.splice(i, 1);
+        }
+        console.log(arr);
+    }
+
+    filterRangeInPlace(arr, 1, 8);
+
+    alert( arr );
+</script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        th {
+            cursor: pointer;
+        }
+
+        th:hover {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+<table id="grid">
+    <thead>
+    <tr>
+        <th data-type="number">Возраст</th>
+        <th data-type="string">Имя</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>5</td>
+        <td>Вася</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Петя</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>Женя</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>Маша</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Илья</td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+
+    const wrapper = document.querySelector('#grid');
+
+    wrapper.addEventListener('click', function (e) {
+        if(e.target.tagName != 'TH') return;
+        sortGrid(e.target.cellIndex, e.target.getAttribute('data-type'));
+    });
+
+    function sortGrid(colNum, type) {
+        const tbody = wrapper.getElementsByTagName('tbody')[0];
+
+        // Составить массив из TR
+        const rowsArr = [].slice.call(tbody.rows);
+
+        // определить функцию сравнения, в зависимости от типа
+        let compare;
+
+        switch (type) {
+            case 'number':
+                compare = function(rowA, rowB) {
+                    return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
+                };
+                break;
+            case 'string':
+                compare = function(rowA, rowB) {
+                    return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML;
+                };
+                break;
+        }
+
+        // сортировать
+        rowsArr.sort(compare);
+
+        // Убрать tbody из большого DOM документа для лучшей производительности
+        wrapper.removeChild(tbody);
+
+        // добавить результат в нужном порядке в TBODY
+        // они автоматически будут убраны со старых мест и вставлены в правильном порядке
+        for (let i = 0; i < rowsArr.length; i++) {
+            tbody.appendChild(rowsArr[i]);
+        }
+
+        wrapper.appendChild(tbody);
+
+    }
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var array = [];
+
+    function calc(arr) {
+        var result = 0;
+
+        do{
+            var newValue = prompt('write a new number', '0');
+            array.push(newValue);
+        }while (newValue !== null);
+
+        if(newValue === null){
+            for(var i = 0; i < arr.length; i++){
+                result += arr[i] / 1;
+            }
+        }
+        return result;
+    }
+
+    alert(calc(array));
+</script>
+
+</body>
+</html>

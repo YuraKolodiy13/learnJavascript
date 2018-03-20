@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    function checkSpam(str){
+        str = str.toUpperCase();
+        if ((str.indexOf('VIAGRA') != -1) || (str.indexOf('XXX') != -1)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    alert(checkSpam('buy ViAgRA now'));
+    alert(checkSpam('free xxxxx'));
+    alert(checkSpam('innocent rabbit'));
+</script>
+
+</body>
+</html>

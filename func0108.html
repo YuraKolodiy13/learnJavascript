@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var obj = {
+        className: 'open menu'
+    };
+    
+    function addClass(obj, cls){
+        var classes = obj.className.split(' ');
+
+        for (var i = 0; i < classes.length; i++){
+            if(classes[i] == cls){
+                return;
+            }
+        }
+        classes.push(cls);
+        obj.className = classes.join(' ');
+    }
+
+    addClass(obj, 'new'); // obj.className='open menu new'
+    addClass(obj, 'open'); // без изменений (класс уже существует)
+    addClass(obj, 'me'); // obj.className='open menu new me'
+
+    alert( obj.className ); // "open menu new me"
+</script>
+
+</body>
+</html>

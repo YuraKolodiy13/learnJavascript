@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var ABC = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+        'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    var letter = 'abcdefghijklmnopqrstuvwxyz';
+//    function isPangram(string){
+//        var letter = string.split(' ');
+//        string = letter.join('');
+//        letter = string.split('');
+//        letter.sort();
+//
+//        for(var i = 0; i < letter.length; i++){
+//            for(var j = 0; j < letter[i].length; j++){
+//                if(ABC[i] != letter[i][j]){
+//                    return false;
+//                }
+//            }
+//        }
+//        return true;
+//    }
+
+    function isPangram(string) {
+        var stringLower = string.toLowerCase();
+
+        for (var i = 0; i < ABC.length; i++){
+            if(stringLower.indexOf(ABC[i]) == -1){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    var string1 = "The quick brown fox jumps over the lazy dog";
+    var string2 = "This is not a pangram.";
+
+    console.log(isPangram(string1));
+    console.log(isPangram(string2));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input[type='checkbox']{
+            outline: 1px solid red;
+            outline-offset: 5px;
+            margin: 5px;
+        }
+        input[type='checkbox']:not(:checked){
+            outline-color: green;
+        }
+        li[id ^= 'message']{
+            background-color: cyan;
+        }
+        a[href $= 'zip']{
+            border: 4px solid yellow;
+        }
+        li[data-action ~= 'delete']{
+            background-color: #6600cc;
+        }
+        li[data-action]:not([data-action ~= 'delete']){
+            background-color: red;
+        }
+        #messages li:nth-child(even){
+            text-decoration: line-through;
+        }
+        h3#widget-title + *{
+            border: 2px dashed black;
+        }
+        h3#widget-title ~ a{
+            color: chartreuse;
+        }
+        #messages li:last-child a{
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox">
+    <input type="checkbox" checked>
+    <input type="text" id="message">
+
+    <h3 id="widget-title">Сообщения:</h3>
+    <ul id="messages">
+        <li id="message-1">Сообщение 1</li>
+        <li id="message-2">Сообщение 2</li>
+        <li id="message-3" data-action="delete">Сообщение 3</li>
+        <li id="message-4" data-action="edit do-not-delete">Сообщение 4</li>
+        <li id="message-5" data-action="edit delete">Сообщение 5</li>
+        <li><a href="#">...</a></li>
+    </ul>
+
+    <a href="http://site.com/list.zip">Ссылка на архив</a>
+    <a href="http://site.com/list.pdf">..И на PDF</a>
+</body>
+</html>

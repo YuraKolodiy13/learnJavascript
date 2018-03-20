@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function User() {
+        var firstName;
+        var surname;
+
+
+        this.setFirstName = function (text) {
+            firstName = text;
+        };
+        this.setSurname = function (text) {
+            surname = text;
+        };
+        this.getFullName = function () {
+            return firstName + ' ' + surname;
+        }
+    }
+
+    var user = new User();
+    user.setFirstName('Petya sam');
+    user.setSurname('Ivanov');
+    alert(user.getFullName());
+</script>
+
+</body>
+</html>

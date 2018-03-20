@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function extractCurrencyValue(str) {
+        var price;
+        return price = +str.slice(1);
+    }
+
+    alert(extractCurrencyValue('$120'));
+    alert(extractCurrencyValue('#21'));
+    alert(extractCurrencyValue('543'));
+</script>
+
+</body>
+</html>

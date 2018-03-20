@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function add(a, b) {
+        return a + b;
+    }
+    function superFunc(f) {
+        return function (a) {
+            return function (b) {
+                return f(a, b);
+            }
+        }
+    }
+
+    var result = superFunc(add)(1)(7);
+
+   console.log(result)
+</script>
+
+</body>
+</html>

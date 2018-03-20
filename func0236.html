@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var Obj = function () {
+        this.txt = 'some'
+    };
+    var obj = new Obj();
+    alert(obj);
+
+    var obj2 = new obj.constructor();
+    alert(obj2);
+</script>
+
+</body>
+</html>

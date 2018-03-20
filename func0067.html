@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var array = ["Яблоко", "Апельсин", "Груша", "Лимон"];
+
+    function randomValue(arr) {
+        var max = arr.length - 1;
+        var rand = Math.floor(Math.random() * (max + 1));
+        return arr[rand];
+    }
+
+    console.log(randomValue(array));
+</script>
+
+</body>
+</html>

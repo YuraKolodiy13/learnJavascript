@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function add (a, b) {
+        return a + b;
+    }
+
+    function double (a) {
+        return a * 2;
+    }
+
+    var make_lazy = function () {
+
+        var operation = arguments[0];
+        var args = [].slice.call(arguments, 1);
+        return function() {
+            return operation.apply(arguments, args);
+        };
+    };
+
+    var lazy_value = make_lazy(add, 2, 3);
+    console.log(lazy_value());
+
+    var lazy_value2 = make_lazy(double, 2);
+    console.log(lazy_value2());
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function add(a, b, c, d) {
+        return a + b + c + d;
+    }
+    function sub(a, b) {
+        return a - b;
+    }
+    
+    function decorator(func) {
+        return function (a, b) {
+            return 'Answer: ' + func.apply(null, arguments);
+        }
+    }
+
+    var add2 = decorator(add);
+    console.log(add2(10, 3, 21, 21));
+    var sub2 = decorator(sub);
+    console.log(sub2(10, 4))
+</script>    
+
+</body>
+</html>

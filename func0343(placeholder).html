@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* стиль для input с плейсхолдером */
+
+        label{
+            position: relative;
+            margin: 20px 0;
+            display: block;
+        }
+        .placeholder {
+            color: blue;
+            font-family: Georgia;
+        }
+        /* стиль для подсказки над элементом (вместо плейсхолдера при фокусировке) */
+
+        .placeholder-tooltip {
+            font-size: 13.33px;
+            color: blue;
+            font-family: Georgia;
+            position: fixed;
+            /*top: -20px;*/
+        }
+    </style>
+</head>
+
+<body>
+
+<p>Красивый placeholder:</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque commodi deserunt dolor eius hic incidunt laboriosam, modi numquam tenetur. At atque distinctio ducimus facilis odio officia quis sequi totam.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque commodi deserunt dolor eius hic incidunt laboriosam, modi numquam tenetur. At atque distinctio ducimus facilis odio officia quis sequi totam.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque commodi deserunt dolor eius hic incidunt laboriosam, modi numquam tenetur. At atque distinctio ducimus facilis odio officia quis sequi totam.</p>
+<input type="email" data-placeholder="E-mail">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque commodi deserunt dolor eius hic incidunt laboriosam, modi numquam tenetur. At atque distinctio ducimus facilis odio officia quis sequi totam.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque commodi deserunt dolor eius hic incidunt laboriosam, modi numquam tenetur. At atque distinctio ducimus facilis odio officia quis sequi totam.</p>
+
+
+<script>
+    var input = document.querySelector('[data-placeholder]');
+
+    showPlaceholder(input);
+
+    // Показать placeholder внутри input
+    // Также можно сделать это при помощи вёрстки, отдельным элементом
+    function showPlaceholder(input) {
+        input.classList.add('placeholder');
+        input.value = input.dataset.placeholder;
+    }
+
+    function showTooltip(input) {
+        const tooltip = document.createElement('div');
+        tooltip.innerHTML = input.dataset.placeholder;
+        tooltip.classList.add('placeholder-tooltip');
+        tooltip.style.left = input.getBoundingClientRect().left + 'px';
+        document.body.appendChild(tooltip);
+        tooltip.style.top = input.getBoundingClientRect().top - tooltip.offsetHeight - 4 + 'px';
+        input.tooltip = tooltip;
+    }
+
+    input.addEventListener('focus', function () {
+        if(input.classList.contains('placeholder')){
+            input.classList.remove('placeholder');
+            input.value = '';
+        }
+        showTooltip(input);
+    });
+
+    input.addEventListener('blur', function () {
+        document.body.removeChild(input.tooltip);
+        delete input.tooltip;
+
+        if(input.value == ''){
+            showPlaceholder(input);
+        }
+    })
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var date = new Date(2014, 1, 5);  // 3 янв 2012
+
+    function getLocalDay(date){
+        var  day = date.getDay();
+        if(day == 0){
+            day = 7;
+        }
+        return day;
+    }
+
+    alert( getLocalDay(date) );       // вторник, выведет 2
+</script>
+
+</body>
+</html>

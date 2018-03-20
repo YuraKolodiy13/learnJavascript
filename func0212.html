@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function func(x) {
+        console.log(x);
+    }
+    
+    function debaunce(f, time) {
+        var state = true;
+
+        return function () {
+            if(!state) return;
+            f.apply(this, arguments);
+            state = false;
+
+            setTimeout(function () {
+                state = true;
+            }, time)
+        }
+    }
+
+    var func1 = debaunce(func, 1000);
+
+    func1(1);
+    func1(2);
+
+    setTimeout(function () {
+        func1(3)
+    }, 100);
+    setTimeout(function () {
+        func1(4)
+    }, 1010);
+    setTimeout(function () {
+        func1(5)
+    }, 1500);
+    setTimeout(function () {
+        func1(6)
+    }, 2500);
+    setTimeout(function () {
+        func1(7)
+    }, 3511);
+</script>
+
+</body>
+</html>

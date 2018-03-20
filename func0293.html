@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        #field {
+            width: 200px;
+            border: 10px groove black;
+            background-color: #00FF00;
+            position: relative;
+            margin: 200px auto;
+        }
+
+        #ball {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div id="field">
+    <img src="https://js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+</div>
+
+<script>
+    var ball = document.getElementById('ball');
+    var field = document.getElementById('field');
+
+    var centerBallX = field.clientWidth/2 - ball.clientWidth/2;
+    var centerBallY = field.clientHeight/2 - ball.clientHeight/2;
+
+    ball.style.top = centerBallY + 'px';
+    ball.style.left = centerBallX + 'px';
+</script>
+
+</body>
+
+</html>

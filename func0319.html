@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        .tree li {
+            cursor: pointer;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+<ul class="tree" id="tree">
+    <li>Животные
+        <ul>
+            <li>Млекопитающие
+                <ul>
+                    <li>Коровы</li>
+                    <li>Ослы</li>
+                    <li>Собаки</li>
+                    <li>Тигры</li>
+                </ul>
+            </li>
+            <li>Другие
+                <ul>
+                    <li>Змеи</li>
+                    <li>Птицы</li>
+                    <li>Ящерицы</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Рыбы
+        <ul>
+            <li>Аквариумные
+                <ul>
+                    <li>Гуппи</li>
+                    <li>Скалярии</li>
+                </ul>
+
+            </li>
+            <li>Морские
+                <ul>
+                    <li>Морская форель</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+    const tree = document.getElementById('tree');
+
+    function isOverTitle(evt, li) {
+        let titleWrapper = document.createElement('span');
+        let titleTextNode = li.firstChild;
+        li.insertBefore(titleWrapper, titleTextNode);
+        titleWrapper.appendChild(titleTextNode);
+
+        let isClickOnTitle = (document.elementFromPoint(evt.clientX, evt.clientY) == titleWrapper);
+
+        titleWrapper.removeChild(titleWrapper.firstChild);
+        li.replaceChild(titleTextNode, titleWrapper);
+
+        return isClickOnTitle;
+    }
+
+    tree.onclick = function(evt) {
+        let evt = evt || event;
+        let target = evt.target || evt.srcElement;
+
+        if(!isOverTitle(evt, target)) return;
+
+        /* раскрыть-закрыть детей */
+        let node = target.getElementsByTagName('ul')[0];
+        if (!node) return; // нет детей
+
+        node.style.display = node.style.display ? '' : 'none';
+    }
+</script>
+
+</body>
+
+</html>

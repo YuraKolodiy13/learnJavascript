@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Создание списка</h1>
+    <ul class="list"></ul>
+
+    <script>
+        var list = document.querySelector('.list');
+
+        while (true){
+            var prompts = prompt('write somesing');
+            if(!prompts){
+                break;
+            }
+            li = document.createElement('li');
+            li.appendChild(document.createTextNode(prompts));
+            list.appendChild(li);
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

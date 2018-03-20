@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var menu = {
+        width: 200,
+        height: 300,
+        title: "My menu"
+    };
+
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n)
+    }
+
+    function multiplyNumeric(obj) {
+        for(var prop in obj){
+            if(isNumeric(obj[prop])){
+                obj[prop] = obj[prop] * 2;
+            }
+        }
+        return obj;
+    }
+
+    console.log(multiplyNumeric(menu));
+</script>
+
+</body>
+</html>

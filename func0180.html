@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function longerWord(text) {
+        var newText = text.split(' ');
+
+        newText.sort(sortLength);
+
+        function sortLength(a, b) {
+            return a.length - b.length;
+        }
+        return newText[newText.length - 1];
+    }
+    alert(longerWord('Web Developer Tutorial somesingnewforme yppokewrpo sdfs dsgfdfg'));
+</script>
+
+</body>
+</html>

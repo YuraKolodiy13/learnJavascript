@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        #view,
+        #area {
+            height: 150px;
+            width: 400px;
+            font-family: arial;
+            font-size: 14px;
+        }
+
+        #view {
+            /* padding + border = 3px */
+
+            padding: 2px;
+            border: 1px solid black;
+        }
+
+        #area {
+            display: none;
+            /* replace padding with border (still 3px not to shift the contents) */
+
+            border: 3px groove blue;
+            padding: 0;
+        }
+
+        #area:focus {
+            outline: none;
+            /* remove focus border in Safari */
+        }
+    </style>
+</head>
+
+<body>
+
+<ul>
+    <li>Ctrl-E to start editing.</li>
+    <li>While editing: Ctrl-S to save, Esc to cancel.</li>
+</ul>
+
+
+<textarea id="area"></textarea>
+<div id="view">Text</div>
+
+
+<script>
+    const area = document.querySelector('#area');
+    const view = document.querySelector('#view');
+
+    function edit() {
+        view.style.display = 'none';
+        area.value = view.innerHTML;
+        area.style.display = 'block';
+        area.focus();
+    }
+    function save() {
+        area.style.display = 'none';
+        view.innerHTML = area.value;
+        view.style.display = 'block';
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if((e.ctrlKey && e.keyCode === 69) && !area.offsetHeight){
+            edit();
+            e.preventDefault();
+        }
+        if(e.ctrlKey && e.keyCode === 83){
+            save();
+            e.preventDefault();
+        }
+        if(e.keyCode === 27){
+            save();
+            e.preventDefault();
+        }
+    })
+</script>
+</body>
+
+</html>

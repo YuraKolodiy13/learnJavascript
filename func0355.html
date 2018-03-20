@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .menu ul {
+            display: none;
+            margin: 0;
+        }
+
+        .menu .title {
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .menu .title:before {
+            content: '▶';
+            padding-right: 6px;
+            color: green;
+        }
+
+        .menu.open ul {
+            display: block;
+        }
+
+        .menu.open .title:before {
+            content: '▼';
+        }
+    </style>
+</head>
+<body>
+
+<div class="menu" id="sweets-menu">
+    <span class="title">Сладости</span>
+    <ul>
+        <li>Торт</li>
+        <li>Пончик</li>
+        <li>...</li>
+    </ul>
+</div>
+
+<script>
+    class Menu{
+        constructor(options){
+            let elem = options.elem;
+            elem.addEventListener('click', function (e) {
+                e.preventDefault();
+                if(e.target.closest('.title')){
+                    elem.classList.toggle('open')
+                }
+            })
+        }
+    }
+
+    const menu = new Menu({elem: document.querySelector('#sweets-menu')});
+</script>
+</body>
+</html>

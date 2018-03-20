@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            width: 800px;
+            height: 500px;
+        }
+        .slider__imgWrapper{
+            display: flex;
+            position: relative;
+            margin-left: 0;
+            margin-top: 0;
+            transition: 0.6s;
+        }
+        .slider__wrapper{
+            width: 800px;
+            height: 500px;
+            margin: 100px auto;
+            overflow: hidden;
+            border: 5px solid black;
+            box-shadow: 0 0 15px 5px;
+            position: relative;
+        }
+        .prev,
+        .next{
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 100%;
+            background-color: rgba(22, 22, 22, .1);
+            transition: 1s;
+        }
+        .prev{
+            left: 0;
+        }
+        .next{
+            right: 0;
+        }
+        .prev:hover,
+        .next:hover{
+            background-color: rgba(22, 22, 22, .8);
+        }
+
+        .next::before,
+        .next::after,
+        .prev::before,
+        .prev::after{
+            content: '';
+            display: block;
+            width: 20px;
+            height: 2px;
+            background-color: #fff;
+            position: absolute;
+        }
+        .prev::before{
+            transform: rotate(-45deg);
+            top: 243px;
+            left: 10px;
+        }
+        .prev::after{
+            transform: rotate(45deg);
+            top: 257px;
+            left: 10px;
+        }
+        .next::before{
+            transform: rotate(45deg);
+            top: 243px;
+            right: 10px;
+        }
+        .next::after{
+            transform: rotate(-45deg);
+            top: 257px;
+            right: 10px;
+        }
+        .slider__pagination{
+            list-style: none;
+            position: relative;
+            left: 200px;
+            top: -85px;
+            width: 300px;
+        }
+        .slider__pagination li{
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .slider__pagination li a{
+            background-color: #fff;
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        .slider__pagination li a.active{
+            background-color: black;
+        }
+        .slider__pagination .slider__paginationItem--hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider">
+    <div class="slider__wrapper">
+        <div class="slider__imgWrapper">
+            <img src="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg" alt="">
+            <img src="https://files.adme.ru/files/news/part_79/793310/10095010-797ab841d30ecf2e893c6ff55e0e067a_970x-1000-224ec000e1-1484579184.jpg" alt="">
+            <img src="http://ex3m.com.ua/files/2015/11/najdi-5-otlichij.jpg" alt="">
+            <img src="https://ofigenno.com/content/1778-0/4.jpg" alt="">
+            <img src="https://photo.e-migration.ru/wp-content/uploads/2016/08/priroda-new-zeland-4.jpg" alt="">
+            <img src="https://ainteres.ru/wp-content/uploads/2016/11/roco-german.jpg" alt="">
+            <img src="https://telegraf.com.ua/files/2017/08/1-Neobyiknovennoe-foto-na-styike-sushi-i-vodyi.jpg" alt="">
+        </div>
+
+        <div class="slider__navigation">
+            <a href="#" class="prev"></a>
+            <a href="#" class="next"></a>
+        </div>
+    </div>
+
+    <ul class="slider__pagination">
+        <li class="slider__paginationItem slider__paginationItem--hidden"><a href="#" data-slider__item="0"></a></li>
+
+        <!--<li class="slider__paginationItem"><a href="#" class="active" data-slider__item="0"></a></li>-->
+        <!--<li class="slider__paginationItem"><a href="#" data-slider__item="1"></a></li>-->
+        <!--<li class="slider__paginationItem"><a href="#" data-slider__item="2"></a></li>-->
+        <!--<li class="slider__paginationItem"><a href="#" data-slider__item="3"></a></li>-->
+    </ul>
+</div>
+
+<script>
+    function Slider(selector, options) {
+        const __self = this;
+
+        const sliderNode = document.querySelector(selector);
+        const slider__imgWrapper = sliderNode.querySelector('.slider__imgWrapper');
+        const prevImg = sliderNode.querySelector('.prev');
+        const nextImg = sliderNode.querySelector('.next');
+        const sliderPagination = sliderNode.querySelector('.slider__pagination');
+        const sliderPaginationItem = sliderNode.querySelector('.slider__paginationItem');
+
+        let currentSlideIndex = options.currentSlide || 0;
+        const imgCount = slider__imgWrapper.children.length;
+        const slideWidth = slider__imgWrapper.offsetWidth;
+        const slideHeight = slider__imgWrapper.offsetHeight;
+
+        this.nextSlide = function () {
+            if(currentSlideIndex == imgCount - 1){
+                currentSlideIndex = 0;
+            }else {
+                currentSlideIndex++;
+            }
+            console.log(currentSlideIndex);
+        };
+        this.prevSlide = function () {
+            if(currentSlideIndex == 0){
+                currentSlideIndex = imgCount - 1;
+            }else {
+                currentSlideIndex--;
+            }
+            console.log(currentSlideIndex);
+        };
+        this.__render = function () {
+            if(options.direction == 'vertical'){
+                slider__imgWrapper.style.marginTop = -(currentSlideIndex * slideHeight) + 'px';
+            }else {
+                slider__imgWrapper.style.marginLeft = -(currentSlideIndex * slideWidth) + 'px';
+            }
+
+            sliderPagination.querySelector('.active').classList.remove('active');
+            sliderPagination.children[currentSlideIndex+1].querySelector('a').classList.add('active');
+        };
+
+        prevImg.addEventListener('click', function (e) {
+            e.preventDefault();
+            __self.prevSlide();
+            __self.__render()
+        });
+        nextImg.addEventListener('click', function (e) {
+            e.preventDefault();
+            __self.nextSlide();
+            __self.__render();
+        });
+
+        sliderPagination.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = e.target;
+            if(target.tagName !== 'A'){
+                return;
+            }
+            currentSlideIndex = + target.dataset['slider__item'];
+            __self.__render();
+        });
+
+        function createPagination() {
+            const fragment = document.createDocumentFragment();
+            for(let i = 0; i < slider__imgWrapper.children.length; i++){
+                let cloneLi = sliderPaginationItem.cloneNode(true);
+                cloneLi.classList.remove('slider__paginationItem--hidden');
+                cloneLi.querySelector('a').dataset['slider__item'] = i;
+                fragment.appendChild(cloneLi);
+            }
+            sliderPagination.appendChild(fragment);
+        }
+
+        this.__init = function () {
+            if(options.direction == 'vertical'){
+                slider__imgWrapper.style.flexWrap = 'wrap';
+            }
+            createPagination();
+            sliderPagination.children[currentSlideIndex+1].querySelector('a').classList.add('active');
+            this.__render();
+        };
+        this.__init();
+
+    }
+
+    new Slider('.slider', {
+        direction: 'horisontal',
+//        currentSlide: 2,
+        changeInterval: 1500
+    });
+
+</script>
+
+</body>
+</html>

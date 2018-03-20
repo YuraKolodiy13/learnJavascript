@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var styles = ['Джаз', 'Блюз'];
+    console.log(styles);
+
+    styles.push('Рок-н-Ролл');
+    console.log(styles);
+
+    styles[styles.length - 2] = 'Классика';
+    console.log(styles);
+
+    alert(styles.shift());
+    styles.unshift('Реп', 'Регги');
+
+    console.log(styles);
+</script>
+
+</body>
+</html>

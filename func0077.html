@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var obj1 = {
+        className: 'open menu'
+    };
+    var obj2 = {
+        className: 'me last'
+    };
+    var obj3 = {
+        className: ''
+    };
+
+    function addClass(obj, cls) {
+        for(var keys in obj){
+            if(obj[keys].indexOf(cls)){
+                if(obj[keys] !== ''){
+                    obj[keys] = obj[keys] + ' ' + cls;
+                }else {
+                    obj[keys] = obj[keys] + cls;
+                }
+            }else {
+                console.log(cls + ' s');
+            }
+
+        }
+    }
+    addClass(obj1, 'new');
+    addClass(obj2, 'new');
+    addClass(obj1, 'open');
+    addClass(obj2, 'open');
+    addClass(obj1, 'me');
+    addClass(obj2, 'me');
+    addClass(obj3, 'me');
+</script>
+
+</body>
+</html>

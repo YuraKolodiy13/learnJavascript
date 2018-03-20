@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var arr = [1, 2, 3, 4, 5];
+    arr.sort(sortNumber);
+
+    function sortNumber(a, b) {
+        var rand = Math.round(Math.random() * arr.length);
+        return (a + b) * rand;
+    }
+
+    console.log(arr);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var arr = [1, 2, 3, 4, 5];
+
+    arr.sort(sortNumber);
+    function sortNumber(a, b) {
+        var rand = Math.floor(Math.random() * arr.length);
+        return (a + b) * rand;
+    }
+
+    alert( arr ); // элементы в случайном порядке, например [3,5,1,2,4]
+</script>
+
+</body>
+</html>

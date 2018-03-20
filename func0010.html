@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var message;
+    var login = prompt('what is your name', '');
+
+//    if (login == 'Вася') {
+//        message = 'Привет';
+//    } else if (login == 'Директор') {
+//        message = 'Здравствуйте';
+//    } else if (login == '') {
+//        message = 'Нет логина';
+//    } else {
+//        message = '';
+//    }
+
+
+
+
+    (login == 'Вася') ? message = 'Привет':
+    (login == 'Директор') ?  message = 'Здравствуйте' :
+    (login == '') ? message = 'Нет логина' :
+        message = '';
+
+    alert(message);
+</script>
+
+</body>
+</html>

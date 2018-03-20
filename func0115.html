@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var arr = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
+    var obj = {};
+
+    function aclean(arr){
+        for(var i = 0; i < arr.length; i++){
+            var sorted = arr[i].toLowerCase().split('').sort().join();
+            obj[sorted] = arr[i];
+        }
+        console.log(obj);
+    }
+
+    alert( aclean(arr) ); // "воз,киборг,корсет" или "ЗОВ,гробик,сектор"
+</script>
+
+</body>
+</html>

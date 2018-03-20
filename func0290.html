@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #example,
+        #example2 {
+            width: 300px;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+
+            height: 200px;
+
+            border: 25px solid #E8C48F; /* рамка 25px */
+
+            padding: 20px;              /* поля 20px */
+
+            overflow: auto;             /* прокрутка */
+        }
+        #example2{
+            left: 700px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="example">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo laboriosam, nobis. Cum expedita id incidunt iste laborum officia, officiis, quibusdam reiciendis vel velit voluptas voluptatum. Cupiditate deserunt ipsum natus reprehenderit.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo laboriosam, nobis. Cum expedita id incidunt iste laborum officia, officiis, quibusdam reiciendis vel velit voluptas voluptatum. Cupiditate deserunt ipsum natus reprehenderit.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo laboriosam, nobis. Cum expedita id incidunt iste laborum officia, officiis, quibusdam reiciendis vel velit voluptas voluptatum. Cupiditate deserunt ipsum natus reprehenderit.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo laboriosam, nobis. Cum expedita id incidunt iste laborum officia, officiis, quibusdam reiciendis vel velit voluptas voluptatum. Cupiditate deserunt ipsum natus reprehenderit.
+</div>
+
+<div id="example2">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo laboriosam, nobis. Cum expedita id incidunt iste laborum officia, officiis, quibusdam reiciendis vel velit voluptas voluptatum. Cupiditate deserunt ipsum natus reprehenderit.
+</div>
+
+<script>
+    var example = document.getElementById('example');
+    var example2 = document.getElementById('example2');
+    example.scrollTop = 100;
+    var exampleScrollBottom = example.scrollHeight - example.scrollTop - example.clientHeight;
+    alert(exampleScrollBottom);
+    var exampleScrollBottom2 = example2.scrollHeight - example2.scrollTop - example2.clientHeight;
+    alert(exampleScrollBottom2);
+
+    var scrollWidth = example.offsetWidth - example.clientWidth - example.clientLeft*2;
+    alert(scrollWidth);
+
+
+
+
+</script>
+</body>
+</html>

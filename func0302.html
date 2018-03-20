@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        ul{
+            list-style: none;
+            padding: 0;
+        }
+        .sweets{
+            cursor: pointer;
+            position: relative;
+            padding-left: 20px;
+        }
+        .sweets::before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 0;
+            border: 5px solid transparent;
+            border-left: 10px solid green;
+        }
+        .sweets__wrapper{
+            position: relative;
+            top: -10px;
+            left: 30px;
+            width: 100px;
+        }
+        .open .sweets::before{
+            border: 5px solid transparent;
+            border-top: 10px solid green;
+        }
+        .open .sweets__wrapper{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <span class="sweets">Сладости (нажми меня)!</span>
+    <ul class="sweets__wrapper">
+        <li>Торт</li>
+        <li>Пончик</li>
+        <li>Пирожное</li>
+    </ul>
+</div>
+
+<script>
+    const sweets = document.querySelector('.sweets');
+    const wrap = document.querySelector('.wrapper');
+
+    sweets.addEventListener('click', function () {
+        wrap.classList.toggle('open');
+    })
+</script>
+</body>
+</html>

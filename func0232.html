@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var animal = {
+        eats: true,
+        drink: false
+    };
+
+    var rabbit = {
+        jumps: true,
+        __proto__: animal
+    };
+
+    alert(rabbit.hasOwnProperty('jumps'));
+    alert(rabbit.hasOwnProperty('drink'));
+</script>
+
+</body>
+</html>
