@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let login = prompt('write a login', 'somesing');
+
+    if(login == 'admin'){
+        let password = prompt('write a password', '****');
+        if(password == 'blackMan'){
+            alert('wellcome');
+        }else if(password === null){
+            alert('no enter');
+        }else {
+            alert('i do not know');
+        }
+    }else if(login === null){
+        alert('no enter');
+    }else {
+        alert('i dont know you');
+    }
+</script>
+
+</body>
+</html>
