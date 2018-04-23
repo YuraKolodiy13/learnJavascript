@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//    let ucFirst = str => {
+//        return str ? str = str[0].toUpperCase() + str.slice(1) : str;
+//    };
+//
+//    console.log(ucFirst('dsfdsf'));
+//    console.log(ucFirst(''));
+
+//    let checkSpam = str => {
+//        str = str.toLowerCase();
+//        if(str.indexOf('viagra') != -1 || str.indexOf('xxx') != -1){
+//            return true;
+//        }else {
+//            return false;
+//        }
+//    };
+//
+//    console.log(checkSpam('buy ViAgRA now') == true);
+//    console.log(checkSpam('free xxxxx') == true);
+//    console.log(checkSpam("innocent rabbit") == false);
+
+//    let truncate = (str, maxlength) => {
+//        if(str.length > maxlength){
+//            let newStr = str.slice(0, maxlength - 3);
+//            return newStr + '...';
+//        }else {
+//            return str;
+//        }
+//
+//    };
+//
+//    document.write(truncate("Вот, что мне хотелось бы сказать на эту тему:", 20));// = "Вот, что мне хоте..."
+//
+//    document.write(truncate("Всем привет!", 20)); //"Всем привет!"
+
+    let extractCurrencyValue = str => {
+        let newStr = '';
+        for(let i = 0; i < str.length; i++){
+            if(isNaN(str[i])) continue;
+            newStr += str[i];
+        }
+        return newStr;
+    };
+
+    console.log(extractCurrencyValue('$120'));
+    console.log(extractCurrencyValue('$$220'));
+    console.log(extractCurrencyValue('120'));
+
+</script>
+
+</body>
+</html>
