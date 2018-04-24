@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//    let isEmpty = obj => {
+//        for(let prop in obj){
+//            return false;
+//        }
+//        return true;
+//    };
+//
+//    let schedule = {};
+//
+//    alert( isEmpty(schedule) ); // true
+//
+//    schedule["8:30"] = "подъём";
+//
+//    alert( isEmpty(schedule) ); // false
+
+//    "use strict";
+//
+//    let salaries = {
+//        "Вася": 100,
+//        "Петя": 300,
+//        "Даша": 250
+//    };
+//
+//    let sum = 0;
+//    for (let prop in salaries){
+//        sum += salaries[prop];
+//    }
+//    alert(sum);
+//
+//    "use strict";
+//
+//    let salaries = {
+//        "Вася": 100,
+//        "Петя": 300,
+//        "Даша": 250
+//    };
+//
+//    let higher$ = 0;
+//    let higherName;
+//    for (let prop in salaries){
+//        if(salaries[prop] > higher$){
+//            higher$ = salaries[prop];
+//            higherName = prop;
+//        }
+//    }
+//    console.log(higherName || 'нет сотрудников');
+
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n)
+    }
+    let menu = {
+        width: 200,
+        height: 300,
+        title: "My menu"
+    };
+    let multiplyNumeric = obj => {
+        for(let prop in obj){
+            if(isNumeric(obj[prop])){
+                obj[prop] *= 2;
+            }
+        }
+        return obj;
+    };
+
+    console.log(multiplyNumeric(menu));
+
+</script>
+
+
+
+</body>
+</html>

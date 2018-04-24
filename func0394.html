@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//    let arr = [];
+//    let result = 0;
+//    while(true){
+//        let value = prompt('write a number', 21);
+//        if(value === null || value === '' || isNaN(value)) {
+//            for(let i = 0; i < arr.length; i++){
+//                result += arr[i];
+//            }
+//            break;
+//        }
+//        arr.push(+value);
+//    }
+//   alert(arr + ' = ' + result);
+
+//    let arr = ["test", 2, 1.5, false];
+//
+//    let find = (arr, value) => {
+//        return arr.indexOf(value);
+//    };
+//
+//    console.log(find(arr, "test")); // 0
+//    console.log(find(arr, 2));
+//    console.log(find(arr, 1.5));
+//    console.log(find(arr, 0));
+
+
+    let arr = [5, 4, 3, 8, 0];
+
+    let filterRange = (arr, a, b) => {
+        let newArr = [];
+        for(let i = 0; i < arr.length; i++){
+            if(arr[i] >= a && arr[i] <= b){
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr;
+    };
+
+    console.log(filterRange(arr, 2, 5));
+</script>
+
+</body>
+</html>

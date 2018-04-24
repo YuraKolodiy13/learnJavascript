@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .message{
+            margin: 100px auto;
+            border: 1px solid red;
+            /*background-color: rgb(235, 235, 235);*/
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 800px;
+            height: 600px;
+            z-index: 15;
+        }
+        .top {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 800px;
+            height: 600px;
+            z-index: 14;
+        }
+        .top__shape {
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            left: 234px;
+            top: 172px;
+            width: 335px;
+            height: 158px;
+            z-index: 13;
+        }
+        .top__shadow {
+            background-color: rgb(0, 0, 0);
+            opacity: 0.071;
+            position: absolute;
+            left: 234px;
+            top: 172px;
+            width: 335px;
+            height: 163px;
+            z-index: 12;
+        }
+        .bottom {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 800px;
+            height: 600px;
+            z-index: 10;
+        }
+        .bottom__shape {
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            left: 233px;
+            top: 268px;
+            width: 337px;
+            height: 160px;
+            z-index: 9;
+        }
+        .bottom__shadow {
+            background-color: rgb(0, 0, 0);
+            opacity: 0.039;
+            position: absolute;
+            left: 233px;
+            top: 262px;
+            width: 337px;
+            height: 166px;
+            z-index: 8;
+        }
+        .right {
+            background-color: rgb(242, 242, 242);
+            position: absolute;
+            left: 230px;
+            top: 175px;
+            width: 343px;
+            height: 253px;
+            z-index: 6;
+        }
+        .left {
+            background-color: rgb(242, 242, 242);
+            position: absolute;
+            left: 230px;
+            top: 172px;
+            width: 343px;
+            height: 256px;
+            z-index: 5;
+        }
+        .Base {
+            background-color: rgb(235, 235, 235);
+            position: absolute;
+            left: 230px;
+            top: 172px;
+            width: 343px;
+            height: 256px;
+            z-index: 4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="message">
+    <div class="top">
+        <div class="top__shape"></div>
+        <div class="top__shadow"></div>
+    </div>
+    <div class="right"></div>
+    <div class="bottom">
+        <div class="bottom__shape"></div>
+        <div class="bottom__shadow"></div>
+    </div>
+    <div class="left"></div>
+</div>
+
+</body>
+</html>
