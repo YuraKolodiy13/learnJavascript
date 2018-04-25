@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let obj = {
+        className: ''
+    };
+
+    let addClass = (obj, cls) => {
+        let arr;
+        if (obj.className == ''){
+            arr = obj.className.split('');
+        }else{
+            arr = obj.className.split(' ');
+        }
+        for(let i = 0; i < arr.length; i++){
+            if (arr[i] == cls) return;
+        }
+        arr.push(cls);
+        obj.className = arr.join(' ');
+        return obj.className;
+    };
+
+    addClass(obj, 'new'); // obj.className='open menu new'
+    addClass(obj, 'open'); // без изменений (класс уже существует)
+    addClass(obj, 'me'); // obj.className='open menu new me'
+
+    console.log( obj.className );
+</script>
+
+</body>
+</html>

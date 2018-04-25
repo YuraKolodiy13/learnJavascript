@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let obj = {
+        className: 'open menu open bla blabla'
+    };
+
+    let removeClass = (obj, cls) => {
+        let str = obj.className.split(' ');
+        for(let i = 0; i < str.length; i++){
+            if(str[i] === cls){
+                str.splice(i, 1);
+                i--;
+            }
+        }
+        obj.className = str.join(' ');
+        return obj.className;
+    };
+
+    console.log(removeClass(obj, 'open')); // obj.className='menu'
+    console.log(removeClass(obj, 'blabla'))
+</script>
+
+</body>
+</html>
