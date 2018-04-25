@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    let list = {
+        value: 1,
+        next: {
+            value: 2,
+            next: {
+                value: 3,
+                next: {
+                    value: 4,
+                    next: {
+                        value: 'some',
+                        next: null
+                    }
+                }
+            }
+        }
+    };
+
+//    let printList = list => {
+//        let nowValue = list;
+//
+//        while (nowValue){
+//            console.log(nowValue.value);
+//            nowValue = nowValue.next;
+//        }
+//    };
+
+    let printList = list => {
+        let nowList = list;
+        nowList = nowList.next;
+        if(nowList) printList(nowList);
+        console.log(list.value);
+    };
+
+    printList(list);
+</script>
+
+</body>
+</html>
