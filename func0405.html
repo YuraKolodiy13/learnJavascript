@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let arr = [1, 2, 3];
+    let newArr;
+
+    function factory(x) {
+        return function (arr) {
+            newArr = arr.map(function (item) {
+                return item *= x;
+            });
+            return newArr;
+        }
+    }
+    let fives = factory(15);
+    console.log(fives(arr));
+</script>
+
+</body>
+</html>

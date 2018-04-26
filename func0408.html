@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//    function f(x) {
+//        console.log(arguments.length ? 1 : 0);
+//    }
+//
+//    f(undefined); // 1
+//    f(); // 0
+
+    function sum() {
+        let result = 0;
+        [...arguments].forEach(item => result += item);
+        return result;
+    }
+    console.log(sum(10, 12, 13));
+</script>
+
+</body>
+</html>
