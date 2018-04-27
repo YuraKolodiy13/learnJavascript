@@ -1,0 +1,222 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    background: fixed url("img/Become.jpg") no-repeat center top;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    z-index: 10;
+}
+.header__overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+}
+.header__info{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+.header__text{
+    font-size: 40px;
+    width: 60%;
+    text-align: center;
+}
+.header__photo{
+    text-align: center;
+    width: 40%;
+}
+.header__photo img{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 20px #ddd;
+}
+.header__photo p{
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: .5s;
+}
+.header__photo img:hover + p{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+main{
+    position: relative;
+    max-width: 1170px;
+    margin: auto;
+}
+.progress{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    width: 1px;
+    background: #999;
+    height: 100%;
+}
+.bar{
+    width: 4px;
+    height: 25px;
+    background: blue;
+    transition: 0.5s;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    padding: 100px 0;
+}
+.info__img{
+    width: 45%;
+    margin-top: 40px;
+}
+.info__img img{
+    max-width: 100%;
+    height: auto;
+}
+.skills{
+    max-width: 50%;
+    /*margin: auto;*/
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.skills__item{
+    width: 48%;
+}
+.skills__title{
+    width: 100%;
+    margin-bottom: 50px;
+    font-size: 36px;
+    line-height: 40px;
+    color: #333333;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+.skills__progress {
+    height: 3px;
+    border: 1px solid #009dda;
+    /*padding: 2px;*/
+    position: relative;
+    margin-left: 60px;
+}
+.skills__progress::before{
+    content: '';
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url("img/sprite.png") no-repeat;
+    width: 52px;
+    height: 52px;
+}
+.skills__html .skills__progress::before{
+    background-position: -5px -5px;
+}
+.skills__css .skills__progress::before{
+    background-position: 2px -245px;
+}
+.skills__js .skills__progress::before{
+    background-position: -5px -486px;
+}
+.skills__photoshop .skills__progress::before{
+    background-position: 0 -48px;
+    background-size: 50px;
+}
+.skills__git .skills__progress::before{
+    background-position: 0 -246px;
+    background-size: 50px;
+}
+.skills__gulp .skills__progress::before{
+    background-position: -5px -366px;
+}
+.skills__bootstrap .skills__progress::before{
+    background-position: -5px -185px;
+}
+.skills__jquery .skills__progress::before{
+    background-position: -5px -424px;
+}
+.skills__wp .skills__progress::before{
+    background-position: -5px -125px;
+}
+.skills__less .skills__progress::before{
+    background-position: -5px -544px;
+}
+.skills__line {
+    height: 3px;
+    background: #009dda;
+    width: 0;
+    transition: 1s;
+}
+.skills__name {
+    text-align: right;
+    font-size: 13px;
+    line-height: 20px;
+    color: #444444;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.skills__name span{
+    padding-left: 30px;
+    color: red;
+}
+
+.footer{
+    background: url("img/footer.jpg") no-repeat center top;
+    background-size: cover;
+    position: relative;
+    padding: 50px 0;
+}
+.footer__overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8);
+}
+.footer__contacts{
+    position: relative;
+    z-index: 10;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1170px;
+    margin: auto;
+}
+.footer__contacts a{
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+a.footer__order{
+    width: 100%;
+    text-align: center;
+    background: red;
+    margin: 0 35%;
+    padding: 10px;
+}
+.footer__title{
+    text-align: center;
+    font-size: 30px;
+    margin: 0 auto 50px;
+    width: 100%;
+    padding: 0 25%;
+}
